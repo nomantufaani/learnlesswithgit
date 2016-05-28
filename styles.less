@@ -1,0 +1,117 @@
+/*	Variables */
+@grass: #009900;
+
+h1 {
+	color: @grass;
+	font-family: Tahoma, sans-serif;
+}
+p {
+	color: @grass;
+}
+/*	Variables */
+
+
+
+/*	Mixins */
+.panel {
+	border: 3px solid dodgerblue;
+	background: lightgreen;
+	margin: 10px;
+}
+.little-panel {
+	.panel;
+	font-size: 12px;
+	padding-left: 5px;
+}
+.big-panel {
+	.panel;
+	font-size: 32px;
+	padding-left: 20px;
+}
+/*	Mixins */
+
+
+
+
+/* Nested Rules Example */
+#side-nav {
+	background: #333;
+	a:link, a:visited {
+		color: white;
+		display: block;
+		padding: 8px;
+	}
+	a:hover {
+		background: #777;
+	}
+
+}
+/* Nested Rules Example */
+
+
+
+/* Nested Conditions Example */
+#welcome-banner {
+	font-size: 32px;
+	background: lightgreen;
+
+	// Only On Small Screen Devices
+	@media screen {
+		@media (max-width: 768px) {
+			font-size: 18px;
+			background: lightsteelblue;
+		}
+	}
+}
+/* Nested Conditions Example */
+
+
+
+
+/* Simple Operations Example */
+@buttonBackground: #50996a;
+@buttonColor: #fff;
+@buttonPadding: 5px;
+
+.button {
+	background: @buttonBackground;
+	color: @buttonColor;
+	padding: @buttonPadding;
+	display: inline-block;
+	border-radius: 4px;
+}
+
+.jumbo-button {
+	.button;
+	padding: @buttonPadding + 30;
+}
+
+.light-button {
+	.button;
+	background: @buttonBackground * 1.8;
+	// padding: @buttonPadding;
+}
+/* Simple Operations Example */
+
+
+
+/* Importing File And Paths Example */
+@import "button";
+@import "form";
+
+@images: "images/";
+@homepage-images: "images/homepage/";
+
+#one {
+	height: 500px;
+	width: 800px;
+	margin-bottom: 10px;
+	background: url("@{images}android.jpg");
+}
+#two {
+	height: 500px;
+	width: 800px;
+	margin-bottom: 10px;
+	background: url("@{homepage-images}apple.jpg");
+}
+/* Importing File And Paths Example */
